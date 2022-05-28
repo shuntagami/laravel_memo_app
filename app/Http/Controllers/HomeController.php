@@ -35,6 +35,7 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $posts = $request->all();
+        $request->validate(['content' => 'required']);
         // dump die
         // dd($posts);
 
@@ -82,6 +83,7 @@ class HomeController extends Controller
     public function update(Request $request)
     {
         $posts = $request->all();
+        $request->validate(['content' => 'required']);
         // dump die
         // dd($posts);
 

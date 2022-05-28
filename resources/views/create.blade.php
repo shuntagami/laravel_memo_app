@@ -9,6 +9,9 @@
         <div class="form-group">
             <textarea class="form-control mb-3" name="content" rows="3" placeholder="入力しろ"></textarea>
         </div>
+        @error('content')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     @foreach($tags as $t)
         <div class="form-check form-check-inline mb-3">
             <input class="form-check-input" type="checkbox" name="tags[]" id="{{ $t['id'] }}" value="{{ $t['id'] }}">
