@@ -67,4 +67,16 @@ class HomeController extends Controller
 
         return redirect(route('home'));
     }
+
+    public function destroy(Request $request)
+    {
+        $posts = $request->all();
+        // dump die
+        // dd($posts);
+
+        // Memo::where('id', $posts['memo_id'])->delete(); // 物理削除
+        Memo::where('id', $posts['memo_id'])->update(['deleted_at' => date("Y-m-d H:i:s", time())]); // 論理削除
+
+        return redirect(route('home'));
+    }
 }
